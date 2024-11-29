@@ -4,9 +4,9 @@ const {Topic} = require('../db/models')
 router.route('/').get(async(req,res)=>{
     try {
       const allTopic = await Topic.findAll()
-      res.json(allTopic)
+      res.status(200).json(formatResponse(200, 'success', allTopic));
     } catch (error) {
-      res.json({message:error.message})
+      res.status(500).json(formatResponse(500, 'Internal server error', null, message));
     }
   })
   
