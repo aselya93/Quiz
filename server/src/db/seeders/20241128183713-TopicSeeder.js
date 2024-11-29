@@ -8,12 +8,15 @@ module.exports = {
       [
         {
           title: "John Doe",
+          img_path: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Twemoji12_2716.svg/768px-Twemoji12_2716.svg.png"
         },
         {
           title: "John Doe",
+          img_path: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Twemoji12_2716.svg/768px-Twemoji12_2716.svg.png"
         },
         {
           title: "John Doe",
+          img_path: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Twemoji12_2716.svg/768px-Twemoji12_2716.svg.png"
         },
       ],
       {}
