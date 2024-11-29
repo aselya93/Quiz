@@ -1,4 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import QuizPage from "../pages/QuizPage/QuizPage"
+import MainPage from "../pages/MainPage/MainPage";
+import Navigation from "../widgets/Navigation/Navigation";
 
 function App() {
   const router = createBrowserRouter([
@@ -7,7 +10,7 @@ function App() {
       element: <Navigation />,
       children: [
         { path: "/", element: <MainPage /> },
-        { path: "/question", element: <QuestionPage /> },
+        { path: "/quiz", element: <QuizPage /> },
       ],
     },
   ]);
