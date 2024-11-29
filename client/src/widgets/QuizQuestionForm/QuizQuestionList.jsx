@@ -1,21 +1,37 @@
 import React, {useEffect, useState} from 'react';
 import QuizPage from '../../pages/QuizPage/QuizPage';
+import QuizTopicCard from '../QuizTopicCard/QuizTopicCard';
 
 function QuizQuestionList(props) {
     const [questions, setQuestions] = useState([])
-    useEffect(() => {
-        setQuestions()
-    },[])
+    const [status, setStatus] = useState(false);
 
-    async function loadQuestion() {
-        const response = await fetch('/api/quiz');
+    useEffect(() => {
+        loadFlashcards(topicId)
+    }, [status])
+
+    async function loadFlashcards(topicId) {
+
+        const response = await fetch(`/api/quiz/${topicId}/flashcards`);
         const data = await response.json()
-        setQuestions(data)
+        if (Array.isArray(data)) {
+            setFlashcards(data)
+        }
     }
 
+    let success = (flashcardId) => {
+        flashcards = flashcards.filter(
+            (el) => el.id !== flashcardId
+        );
+        setFlashcards(flashcards);
+    }
+
+    console.log(flashcards);
+    
+
     return (
-        <div>
-            {questions.map((el) => <QuizPage key={el.id} id={el.id} imgPath={el.img} />)}
+        <div className="flashcardList">
+            {/* {flashcards.map((el) => <QuizTopicCard onSuccess={success} key={el.id}question={el}/>)} */}
         </div>
     );
 }
