@@ -8,8 +8,8 @@ export default function Navigation(){
     return(
         <div>
             <Button text="Викторина!!!!Главная страница" onClick={() => navigate('/')} />
-                 <Link to="/quiz" ></Link>
-
+                 <Link to="/quiz" >
+                 </Link>
                 <Outlet />
 
         </div>

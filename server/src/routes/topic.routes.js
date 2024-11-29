@@ -3,11 +3,14 @@ const {Topic} = require('../db/models')
 const {Question} = require('../db/models')
 const formatResponse = require('../utils/formatResponse')
 
-router.route('/').get(async(req,res)=>{
+router.route('/')
+.get(async(req,res)=>{
     try {
+      console.log(111111)
       const allTopic = await Topic.findAll()
+      console.log(allTopic)
       res.status(200).json(formatResponse(200, 'success', allTopic));
-    } catch (error) {
+    } catch ({message}) {
       res.status(500).json(formatResponse(500, 'Internal server error', null, message));
     }
   })
