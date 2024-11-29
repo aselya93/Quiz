@@ -5,18 +5,18 @@ const formatResponse = require('../utils/formatResponse')
 
 router.route('/').get(async(req,res)=>{
     try {
-      const questions = await Topic.findAll()
-      res.json(formatResponse(200, 'success', questions))
+      const allTopic = await Topic.findAll()
+      res.status(200).json(formatResponse(200, 'success', allTopic));
     } catch (error) {
-      res.json({message:error.message})
+      res.status(500).json(formatResponse(500, 'Internal server error', null, message));
     }
   })
 
   router.route('/:id').get(async(req,res)=>{
     try {
       const {id} = req.params
-      const questions = await Topic.findByPk(id)
-      res.json(formatResponse(200, 'success', questions))
+      const oneTopic = await Topic.findByPk(id)
+      res.status(200).json(formatResponse(200, 'success', oneTopic))
     } catch (error) {
       res.json({message:error.message})
     }
