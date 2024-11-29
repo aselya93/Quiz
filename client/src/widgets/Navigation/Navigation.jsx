@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import Button from '../../shared/ui/Button/Button'
 
 
@@ -7,10 +7,10 @@ export default function Navigation(){
 
     return(
         <div>
-            <Button text="Main" onClick={() => navigate('/')} />
-                <Link to="/quiz" >
-                <Button text="Викторина!!!!"/>
-                </Link>
+            <Button text="Викторина!!!!Главная страница" onClick={() => navigate('/')} />
+                 <Link to="/quiz" ></Link>
+
+                <Outlet />
 
         </div>
     )
