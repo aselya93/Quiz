@@ -1,3 +1,4 @@
+
 "use strict";
 
 /** @type {import('sequelize-cli').Migration} */
@@ -143,4 +144,4 @@ module.exports = {
   async down(queryInterface, Sequelize) {
     await queryInterface.bulkDelete("Questions", null, {});
   },
-};
+}

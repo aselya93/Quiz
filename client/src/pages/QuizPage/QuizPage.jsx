@@ -1,49 +1,51 @@
-import React, { useEffect, useState } from 'react';
-import QuizApi from '../../entities/Question/QuizApi';
-import Button from '../../shared/ui/Button/Button'
+import React, { useEffect, useState } from "react";
+import QuizApi from "../../entities/Question/QuizApi";
+import Button from "../../shared/ui/Button/Button";
+import QuizTopicCard from "../../widgets/QuizTopicCard/QuizTopicCard";
+import { useParams } from "react-router-dom";
 
-function QuizPage(props) {
-   
-//     const [selectedAnswer, setSelectedAnswer] = useState(null);
-//     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-// console.log(1111, questions);
+function QuizPage() {
+  const { topicId } = useParams();
+  const [flashcards, setFlashcards] = useState([]);
+  const [status, setStatus] = useState(false);
 
-// async function loadQuestions() {
-//     const data = await QuizApi.getAllQuizQuestions();
-//     setQuestions(data.data);
+  useEffect(() => {
+    loadFlashcards(topicId);
+  }, [status]);
 
-// };
-//     useEffect(() => {
-//         loadQuestions();
-//     }, []);
+  async function loadFlashcards(topicId) {
+    const response = await fetch(`/api/quiz/${topicId}/questions`);
+    const { data } = await response.json();
 
-//     if(questions.length === 0 ){
-//         return <div>load</div>
-//     }
+    if (Array.isArray(data)) {
+      setFlashcards(data);
+    }
+  }
 
+  const successHandler = (flashcardId) => {
     
-// const selectAnswerHandler = (answer) => {
-// setSelectedAnswer(answer)
-// }
+    const filteredFlashcards = flashcards.filter((el) => el.id !== flashcardId);
+    setFlashcards(filteredFlashcards);
+  };
+  console.log(flashcards);
 
-// const nextQuestionHandler = () => {
-//     if (currentQuestionIndex < questions.length - 1) {
-//         setCurrentQuestionIndex(currentQuestionIndex + 1);
-//         setSelectedAnswer(null);
-//     }
-// };
-
-
-        console.log(props)
-    return (
-        <div className="card" style={{width: "18rem"}}>
-            <img src={props.img} className="card-img-top"/>
-            <div className="card-body">
-                <h5 className="card-title">{props.nam}</h5>
-                <Link to={'/quiz/' + props.id} className="btn btn-primary">Начать квиз</Link>
-            </div>
-        </div>
-    );
+  return (
+    <div className="flashcardList">
+      {flashcards.map((el) => (
+        <QuizTopicCard key={el.id} question={el} onSuccess={successHandler} />
+      ))}
+    </div>
+  );
 }
 
 export default QuizPage;
+
+// return (
+//     <div className="card" style={{width: "18rem"}}>
+//         <img src={props.img} className="card-img-top"/>
+//         <div className="card-body">
+//             <h5 className="card-title">{props.nam}</h5>
+//             <Link to={'/quiz/' + props.id} className="btn btn-primary">Начать квиз</Link>
+//         </div>
+//     </div>
+// );

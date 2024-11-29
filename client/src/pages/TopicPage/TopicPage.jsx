@@ -2,6 +2,7 @@ import Button from '../../shared/ui/Button/Button';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import QuizTopicCard from '../../widgets/QuizTopicCard/QuizTopicCard';
+import QuizPage from '../QuizPage/QuizPage';
 
 function TopicPage() {
   const navigate = useNavigate();
@@ -57,7 +58,7 @@ function TopicPage() {
               topics.map((item) => (
                 <div key={item.id} style={{ width: '200px' }}>
                   <Link to={`/quiz/${item.id}`}>
-                    <QuizTopicCard
+                    <QuizPage
                       title={item.title}
                       image={item.img_path}
                     />

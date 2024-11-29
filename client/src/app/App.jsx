@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import QuizPage from "../pages/QuizPage/QuizPage"
 import TopicPage from "../pages/TopicPage/TopicPage";
 import Navigation from "../widgets/Navigation/Navigation";
+import QuizTopicCard from "../widgets/QuizTopicCard/QuizTopicCard";
 
 function App() {
   const router = createBrowserRouter([
@@ -10,7 +11,7 @@ function App() {
       element: <Navigation />,
       children: [
         { path: "/", element: <TopicPage /> },
-        { path: "/quiz/:id", element: <QuizPage /> },
+        { path: "/quiz/:topicId", element: <QuizPage /> },
       ],
     },
   ]);
