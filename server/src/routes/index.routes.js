@@ -1,11 +1,11 @@
 const router = require('express').Router(); 
 const formatResponse = require('../utils/formatResponse'); 
 const topicRoutes = require('./topic.routes')
-const questionRoutes = require('./question.routes')
+// const questionRoutes = require('./question.routes')
 
 
 router.use('/topic',topicRoutes)
-router.use('/question',questionRoutes)
+//router.use('/question',questionRoutes)
 
 router.use('*', (req, res) => {
   res
