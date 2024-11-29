@@ -3,8 +3,9 @@ const {Topic} = require('../db/models')
 const {Question} = require('../db/models')
 const formatResponse = require('../utils/formatResponse')
 
-router.route('/')
-.get(async(req,res)=>{
+
+const randomQuestions = require('../utils/RandomQuestions')
+router.route('/').get(async(req,res)=>{
     try {
       console.log(111111)
       const allTopic = await Topic.findAll()
@@ -27,7 +28,9 @@ router.route('/')
   router.route('/:id/questions').get(async (req,res) => {
     try {
         const { id } = req.params;
-        const questions = await Question.findAll({ where: { topic_id: id } });
+        const data = await Question.findAll({ where: { topic_id: id } });
+        console.log(data);
+        const questions = randomQuestions(data)
         res.status(200).json(formatResponse(200, 'success', questions))
     } catch (error) {
         console.error(error);
