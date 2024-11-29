@@ -8,7 +8,7 @@ function TopicPage() {
   const [username, setUsername] = useState('');
   const [score, setScore] = useState(0);
   const [isNameEntered, setIsNameEntered] = useState(false);
-  const [topics, setTopics] = useState([]); // Состояние для хранения данных тем
+  const [topics, setTopics] = useState([]);
 
   const onChangeHandler = (e) => {
     setUsername(e.target.value);
@@ -16,7 +16,7 @@ function TopicPage() {
 
   const onKeyPressHandler = (e) => {
     if (e.key === 'Enter' && username.trim() !== '') {
-      setIsNameEntered(true); // Показываем темы
+      setIsNameEntered(true);
     }
   };
 
@@ -33,7 +33,7 @@ function TopicPage() {
       const response = await fetch('/api/quiz/');
       const data = await response.json();
       if (data.statusCode === 200) {
-        setTopics(data.data); // Сохраняем данные в состояние
+        setTopics(data.data);
       }
     } catch (error) {
       console.error('Ошибка при загрузке тем:', error);
@@ -42,9 +42,9 @@ function TopicPage() {
 
   useEffect(() => {
     if (isNameEntered) {
-      loadTopics(); // Загружаем темы только если имя введено
+      loadTopics();
     }
-  }, [isNameEntered]); // Зависимость от isNameEntered, чтобы загрузить темы после ввода имени
+  }, [isNameEntered]);
 
   return (
     <div>
@@ -63,7 +63,7 @@ function TopicPage() {
                     />
                     <Button text={`Тема: ${item.title}`} />
                   </Link>
-                  {/* Отображаем изображение под кнопкой */}
+            
                   <div style={{ textAlign: 'center', marginTop: '10px' }}>
                     <img 
                       src={item.img_path} 
