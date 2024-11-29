@@ -1,11 +1,11 @@
 import React from 'react';
 
-function MainPage() {
+function QuizQuestionForm(props) {
     return (
         <div>
-            hi
+            
         </div>
     );
 }
 
-export default MainPage;
+export default QuizQuestionForm;
