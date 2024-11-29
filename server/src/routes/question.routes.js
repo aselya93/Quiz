@@ -11,7 +11,7 @@
 const router = require('express').Router()
 const {Question} = require('../db/models')
 
-router.route('/').get(async(req,res)=>{
+router.route('/api/quiz').get(async(req,res)=>{
     try {
       const allQuestion = await Question.findAll()
       res.json(allQuestion)

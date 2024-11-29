@@ -1,7 +1,8 @@
 class QuizApi{
     static async getAllQuizQuestions(){
         const response = await fetch('/api/quiz')
-        return await response.json()
+        const data = await response.json()
+        return data
 
     }
 }
