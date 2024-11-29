@@ -34,13 +34,12 @@ function QuizPage(props) {
 // };
 
 
-
         console.log(props)
     return (
         <div className="card" style={{width: "18rem"}}>
             <img src={props.img} className="card-img-top"/>
             <div className="card-body">
-                <h5 className="card-title">{props.name}</h5>
+                <h5 className="card-title">{props.nam}</h5>
                 <Link to={'/quiz/' + props.id} className="btn btn-primary">Начать квиз</Link>
             </div>
         </div>
