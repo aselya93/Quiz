@@ -10,7 +10,7 @@ function App() {
       element: <Navigation />,
       children: [
         { path: "/", element: <TopicPage /> },
-        { path: "/quiz", element: <QuizPage /> },
+        { path: "/quiz/:id", element: <QuizPage /> },
       ],
     },
   ]);
