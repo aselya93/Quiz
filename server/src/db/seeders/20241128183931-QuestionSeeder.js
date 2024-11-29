@@ -1,3 +1,4 @@
+
 "use strict";
 
 /** @type {import('sequelize-cli').Migration} */
@@ -16,6 +17,66 @@ module.exports = {
           img: "https://hl2-beta.ru/gallery/12091990840_gs-summer-200422.jpg",
           topic_id: 2,
         },
+        // {
+        //   quiz_question: "Какая игра изображена на скриншоте",
+        //   answer1: "The Elder Scrolls III: Morrowind",
+        //   answer2: "",
+        //   answer3: "",
+        //   answer4: "",
+        //   right_answer: "The Elder Scrolls III: Morrowind",
+        //   img: "https://cdn3.iconfinder.com/data/icons/ecommerce-mix/1024/cross-1024.png",
+        //   topic_id: 2,
+        // },
+        // {
+        //   quiz_question: "Warcraft III: Reign of Chaos",
+        //   answer1: "testAnswer1",
+        //   answer2: "",
+        //   answer3: "",
+        //   answer4: "",
+        //   right_answer: "Warcraft III: Reign of Chaos",
+        //   img: "https://cdn3.iconfinder.com/data/icons/ecommerce-mix/1024/cross-1024.png",
+        //   topic_id: 2,
+        // },
+        // {
+        //   quiz_question: "Какая игра изображена на скриншоте",
+        //   answer1: "Max Payne 2: The Fall of Max Payne",
+        //   answer2: "",
+        //   answer3: "",
+        //   answer4: "",
+        //   right_answer: "Max Payne 2: The Fall of Max Payne",
+        //   img: "https://cdn3.iconfinder.com/data/icons/ecommerce-mix/1024/cross-1024.png",
+        //   topic_id: 2,
+        // },
+        // {
+        //   quiz_question: "Какая игра изображена на скриншоте",
+        //   answer1: "God of War",
+        //   answer2: "",
+        //   answer3: "",
+        //   answer4: "",
+        //   right_answer: "God of War",
+        //   img: "https://cdn3.iconfinder.com/data/icons/ecommerce-mix/1024/cross-1024.png",
+        //   topic_id: 2,
+        // },
+        // {
+        //   quiz_question: "Какая игра изображена на скриншоте",
+        //   answer1: "BioShock",
+        //   answer2: "",
+        //   answer3: "",
+        //   answer4: "",
+        //   right_answer: "BioShock",
+        //   img: "https://cdn3.iconfinder.com/data/icons/ecommerce-mix/1024/cross-1024.png",
+        //   topic_id: 2,
+        // },
+        // {
+        //   quiz_question: "Какая игра изображена на скриншоте",
+        //   answer1: "Grand Theft Auto IV",
+        //   answer2: "",
+        //   answer3: "",
+        //   answer4: "",
+        //   right_answer: "Grand Theft Auto IV",
+        //   img: "https://cdn3.iconfinder.com/data/icons/ecommerce-mix/1024/cross-1024.png",
+        //   topic_id: 2,
+        // },
         {
           quiz_question: "Какая игра изображена на скриншоте",
           answer1: "Mass Effect",
@@ -83,4 +144,4 @@ module.exports = {
   async down(queryInterface, Sequelize) {
     await queryInterface.bulkDelete("Questions", null, {});
   },
-};
+}
